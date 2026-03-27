@@ -1,0 +1,13 @@
+```text
+# Специфічне для Python та PyInstaller
+__pycache__/
+*.pyc
+build/
+dist/
+*.spec
+*.ico
+
+# Папки з фотографіями (щоб випадково не залити особисті дані)
+photos_to_process/
+ready_to_print/
+*.pdf
