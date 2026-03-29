@@ -71,8 +71,21 @@ def send_telegram_stats(paper, photo, copies, is_fill):
     except Exception as e:
         pass
 
+# --- НОВИЙ МАРКЕТИНГОВИЙ БЛОК ---
 st.title("📸 PhotoPrint UA")
-st.markdown("Автоматична генерація макетів для друку фото на документи.")
+st.markdown("### Автоматичний генератор макетів для фото на документи")
+st.markdown("Забудьте про ручне масштабування в Photoshop. Отримайте готовий до друку PDF із професійною сіткою для розрізання за кілька секунд.")
+
+with st.expander("ℹ️ Як це працює? (Натисніть, щоб розгорнути)"):
+    st.markdown("""
+    1. **Оберіть формат:** Вкажіть розмір паперу, формат фотографій та необхідну кількість копій.
+    2. **Завантажте фото:** Виберіть одну або кілька фотографій (ми автоматично відкадруємо їх під стандарт).
+    3. **Перевірте макет:** Програма створить попередній перегляд із водяним знаком.
+    4. **Друкуйте:** Підтримайте проєкт, щоб отримати чистий PDF у високій якості (300 DPI). 
+    
+    *🇺🇦 Військовослужбовцям та представникам ТЦК доступ надається безкоштовно.*
+    """)
+st.markdown("---")
 
 # --- БЛОК НАЛАШТУВАНЬ ---
 col1, col2 = st.columns(2)
@@ -192,7 +205,7 @@ if st.button("Згенерувати PDF", type="primary"):
             st.caption("*Після успішної оплати платформа Donatello покаже вам код доступу.*")
             
             # Інформація для ЗСУ
-            st.info("🇺🇦 **Для військовослужбовців ЗСУ користування сервісом є безкоштовним.** Зверніться до розробника (sudo.wqa@gmail.com) для отримання постійного коду доступу.")
+            st.info("🇺🇦 **Для військовослужбовців ЗСУ та представників ТЦК користування сервісом є безкоштовним.** Зверніться до розробника (sudo.wqa@gmail.com) для отримання постійного коду доступу.")
 
             # --- НАЛАШТУВАННЯ КОДІВ ---
             ZSU_CODE = "ZSU-HEROES-2026"
@@ -211,3 +224,20 @@ if st.button("Згенерувати PDF", type="primary"):
                 )
             elif unlock_code:
                 st.error("❌ Невірний код. Спробуйте ще раз або зверніться до підтримки.")
+
+# --- FOOTER (ПІДВАЛ САЙТУ) ---
+st.markdown("---")
+st.markdown(
+    """
+    <div style="text-align: center; padding-top: 10px; padding-bottom: 20px; color: #666;">
+        <p style="margin-bottom: 5px;">👨‍💻 <b>Розроблено: <a href="https://github.com/serhiiudowenko" target="_blank" style="text-decoration: none; color: #FF8A65;">Serhii Udowenko</a></b></p>
+        <p style="font-size: 14px; margin-bottom: 15px;">✉️ <a href="mailto:sudo.wqa@gmail.com" style="text-decoration: none; color: #666;">sudo.wqa@gmail.com</a></p>
+        <div style="font-size: 14px; background-color: #f0f2f6; padding: 10px; border-radius: 8px; display: inline-block;">
+            <b>🔗 Інші мої сервіси:</b><br>
+            <a href="https://serhiiudowenko.github.io/dovidniktck/" target="_blank" style="text-decoration: none; color: #1f77b4;">📚 Довідник ТЦК</a> &nbsp;|&nbsp; 
+            <a href="https://github.com/serhiiudowenko" target="_blank" style="text-decoration: none; color: #1f77b4;">🔤 Сервіс транслітерації та інші</a>
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
